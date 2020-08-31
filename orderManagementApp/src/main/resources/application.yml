@@ -51,3 +51,8 @@ resilience4j.thread-pool-bulkhead:
       maxThreadPoolSize: 1
       coreThreadPoolSize: 1
       queueCapacity: 1
+
+spring:
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
