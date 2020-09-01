@@ -22,17 +22,10 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 
     @Override
     public String registerSeller(SellerDto sellerDto) {
-
         String registerSeller = null;
-
-        //for (int i = 0; i < 10000; i++) {
-            long start = System.currentTimeMillis();
-
-            registerSeller = userRegistrationResilience4j.registerSeller(sellerDto);
-
-            logger.info("add seller call returned in - {}", System.currentTimeMillis() - start);
-       // }
-        //registerSeller = userRegistrationResilience4j.registerSeller(sellerDto);
+        long start = System.currentTimeMillis();
+        registerSeller = userRegistrationResilience4j.registerSeller(sellerDto);
+        logger.info("add seller call returned in - {}", System.currentTimeMillis() - start);
         return registerSeller;
 
     }

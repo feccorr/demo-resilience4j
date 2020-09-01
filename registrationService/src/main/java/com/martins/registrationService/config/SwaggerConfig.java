@@ -28,7 +28,7 @@ public class SwaggerConfig {
                 "Documentation for User Registration Service",
                 "1.0",
                 "Terms of service for using User Registration Service",
-                new Contact("Green Learner","https://www.youtube.com/channel/UCaH2MTg94hrJZTolW01a3ZA","greenlearner01@gmail.com"),
+                new Contact("","",""),
                 "MIT Licence",
                 "https://opensource.org/licenses/MIT",
                 new ArrayList<>()

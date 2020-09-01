@@ -28,7 +28,7 @@ public class SwaggerConfig {
                 "Documentation for Order management application",
                 "1.0",
                 "Terms of service for using Order management application",
-                new Contact("Green Learner","https://www.youtube.com/channel/UCaH2MTg94hrJZTolW01a3ZA","greenlearner01@gmail.com"),
+                new Contact(" ","",""),
                 "MIT Licence",
                 "https://opensource.org/licenses/MIT",
                 new ArrayList<>()

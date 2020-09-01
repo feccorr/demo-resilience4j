@@ -29,7 +29,7 @@ public class UserRegistrationResilience4j {
     @RateLimiter(name = "service1", fallbackMethod = "rateLimiterfallback")
     @Retry(name = "retryService1", fallbackMethod = "retryfallback")
     @Bulkhead(name = "bulkheadService1", fallbackMethod = "bulkHeadFallback")
-    public String registerSeller(SellerDto sellerDto) {
+    public String  registerSeller(SellerDto sellerDto) {
         String response = restTemplate.postForObject("/addSeller", sellerDto, String.class);
         return response;
     }
