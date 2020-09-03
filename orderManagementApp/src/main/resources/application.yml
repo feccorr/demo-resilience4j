@@ -6,7 +6,7 @@ management.endpoint.health.show-details: always
 
 resilience4j.circuitbreaker:
   instances:
-    service1:
+    serviceRegisterSeller:
       registerHealthIndicator: true
       ringBufferSizeInClosedState: 5
       ringBufferSizeInHalfOpenState: 3
@@ -28,26 +28,26 @@ resilience4j.circuitbreaker:
 
 resilience4j.ratelimiter:
   instances:
-    service1:
+    serviceRegisterSeller:
       limitForPeriod: 10
       limitRefreshPeriod: 100000
       timeoutDuration: 1000ms
 
 resilience4j.retry:
   instances:
-    retryService1:
+    retryServiceRegisterSeller:
       maxRetryAttempts: 5
       waitDuration: 10000
 
 resilience4j.bulkhead:
   instances:
-    bulkheadService1:
+    bulkheadServiceRegisterSeller:
       maxWaitDuration: 10ms
       maxConcurrentCall: 30
 
 resilience4j.thread-pool-bulkhead:
   instances:
-    bulkheadService1:
+    bulkheadServiceRegisterSeller:
       maxThreadPoolSize: 1
       coreThreadPoolSize: 1
       queueCapacity: 1
