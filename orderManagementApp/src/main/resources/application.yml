@@ -19,7 +19,7 @@ resilience4j.circuitbreaker:
         - org.springframework.web.client.ResourceAccessException
       ignoreExceptions:
           - com.martins.orderManagementApp.service.MyException
-    service2:
+    serviceGetSellersList:
       registerHealthIndicator: true
       ringBufferSizeInClosedState: 6
       ringBufferSizeInHalfOpenState: 4
