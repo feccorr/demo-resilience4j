@@ -26,31 +26,11 @@ resilience4j.circuitbreaker:
       waitDurationInOpenState: 20s
       failureRateThreshold: 60
 
-resilience4j.ratelimiter:
-  instances:
-    serviceRegisterSeller:
-      limitForPeriod: 10
-      limitRefreshPeriod: 100000
-      timeoutDuration: 1000ms
-
 resilience4j.retry:
   instances:
     retryServiceRegisterSeller:
       maxRetryAttempts: 5
       waitDuration: 10000
-
-resilience4j.bulkhead:
-  instances:
-    bulkheadServiceRegisterSeller:
-      maxWaitDuration: 10ms
-      maxConcurrentCall: 30
-
-resilience4j.thread-pool-bulkhead:
-  instances:
-    bulkheadServiceRegisterSeller:
-      maxThreadPoolSize: 1
-      coreThreadPoolSize: 1
-      queueCapacity: 1
 
 spring:
   jackson:
