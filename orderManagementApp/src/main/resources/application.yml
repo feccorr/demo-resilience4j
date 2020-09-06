@@ -5,6 +5,7 @@ management.endpoints.web.exposure.include: '*'
 management.endpoint.health.show-details: always
 
 resilience4j.circuitbreaker:
+#  circuitBreakerAspectOrder: 1
   instances:
     serviceRegisterSeller:
       registerHealthIndicator: true
@@ -27,6 +28,7 @@ resilience4j.circuitbreaker:
       failureRateThreshold: 60
 
 resilience4j.retry:
+#  retryAspectOrder: 2
   instances:
     retryServiceRegisterSeller:
       maxRetryAttempts: 5
