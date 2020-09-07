@@ -48,11 +48,21 @@ public class UserRegistrationResilience4j {
     public List<SellerDto> fallbackForGetSeller(Throwable t) {
         logger.error("Inside fallbackForGetSeller, cause - {}", t.toString());
         SellerDto sd = new SellerDto();
-        sd.setFirstName("john");
-        sd.setId(1111);
-        sd.setEmailId("default");
+        SellerDto sd2 = new SellerDto();
+
+        //Add default seller 1
+        sd.setFirstName("Jonh Circuit break");
+        sd.setId(500);
+        sd.setEmailId("default@default.com");
+
+        //Add default seller 2
+        sd2.setFirstName("Cardano");
+        sd2.setId(100);
+        sd2.setEmailId("cardano@cardano.com");
+
         List<SellerDto> defaultList = new ArrayList<>();
         defaultList.add(sd);
+        defaultList.add(sd2);
         return defaultList;
     }
 
