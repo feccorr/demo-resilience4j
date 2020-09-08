@@ -5,14 +5,12 @@ management.endpoints.web.exposure.include: '*'
 management.endpoint.health.show-details: always
 
 resilience4j.circuitbreaker:
-  circuitBreakerAspectOrder: 1
+ #circuitBreakerAspectOrder: 1
   instances:
     serviceRegisterSeller:
       registerHealthIndicator: true
-      ringBufferSizeInClosedState: 5
-      ringBufferSizeInHalfOpenState: 3
-      waitDurationInOpenState: 10s
-      failureRateThreshold: 50
+      waitDurationInOpenState: 10s # tempo que deve esperar antes de fazer a transição de OPEN para HALF-OPEN
+      failureRateThreshold: 50 # porcentagem de limite de erros necessário para o Circuit breaker alterar seu estado para OPEN
       recordExceptions:
         - org.springframework.web.client.HttpServerErrorException
         - java.io.IOException
@@ -22,13 +20,11 @@ resilience4j.circuitbreaker:
           - com.martins.orderManagementApp.service.MyException
     serviceGetSellersList:
       registerHealthIndicator: true
-      ringBufferSizeInClosedState: 6
-      ringBufferSizeInHalfOpenState: 4
-      waitDurationInOpenState: 20s
-      failureRateThreshold: 60
+      waitDurationInOpenState: 20s # tempo que deve esperar antes de fazer a transição de OPEN para HALF-OPEN
+      failureRateThreshold: 60 # porcentagem de limite de erros necessário para o Circuit breaker alterar seu estado para OPEN
 
 resilience4j.retry:
-  retryAspectOrder: 2
+  #retryAspectOrder: 2
   instances:
     retryServiceRegisterSeller:
       maxRetryAttempts: 5

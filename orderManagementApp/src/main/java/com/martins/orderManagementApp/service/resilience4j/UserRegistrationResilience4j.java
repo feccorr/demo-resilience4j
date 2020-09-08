@@ -1,6 +1,7 @@
 package com.martins.orderManagementApp.service.resilience4j;
 
 import com.martins.orderManagementApp.dto.SellerDto;
+import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.slf4j.Logger;
@@ -25,6 +26,8 @@ public class UserRegistrationResilience4j {
 
     @CircuitBreaker(name = "serviceRegisterSeller", fallbackMethod = "fallbackForRegisterSeller")
     @Retry(name = "retryServiceRegisterSeller", fallbackMethod = "retryfallback")
+    //@Bulkhead(name = "bulkheadService1", fallbackMethod = "bulkHeadFallback")
+    //@RateLimiter(name = "service1", fallbackMethod = "rateLimiterfallback")
     public String  registerSeller(SellerDto sellerDto) {
         String response = restTemplate.postForObject("/addSeller", sellerDto, String.class);
         return response;
@@ -43,6 +46,14 @@ public class UserRegistrationResilience4j {
     public String fallbackForRegisterSeller(SellerDto sellerDto, Throwable t) {
         logger.error("Inside circuit breaker fallbackForRegisterSeller, cause - {}", t.toString());
         return "Inside circuit breaker fallback method. Some error occurred while calling service for seller registration";
+    }
+    public String rateLimiterfallback(SellerDto sellerDto, Throwable t) {
+        logger.error("Inside rateLimiterfallback, cause - {}", t.toString());
+        return "Inside rateLimiterfallback method. Some error occurred while calling service for seller registration";
+    }
+    public String bulkHeadFallback(SellerDto sellerDto, Throwable t) {
+        logger.error("Inside bulkHeadFallback, cause - {}", t.toString());
+        return "Inside bulkHeadFallback method. Some error occurred while calling service for seller registration";
     }
 
     public List<SellerDto> fallbackForGetSeller(Throwable t) {
