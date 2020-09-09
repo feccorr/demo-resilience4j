@@ -26,4 +26,16 @@ http://localhost:8085/swagger-ui.html
 ```
 ![ordermanapp](https://user-images.githubusercontent.com/45246027/92658386-dd673480-f2cc-11ea-9a18-4101b01eac04.png)
 
+#### Prometheus
+
+É possivel monitorar os dados atraves de metricas em tempo real no prometheus, é necessário instalar o pacote do prometheus e alterar seu arquivo de configuração adicionando o trecho abaixo:
+
+```python
+  - job_name: 'spring-resilience4j'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s    
+    static_configs:
+    - targets: ['127.0.0.1:8085']
+```
+
 >Referencia técnica : https://resilience4j.readme.io/docs
