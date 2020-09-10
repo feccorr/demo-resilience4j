@@ -39,8 +39,9 @@ http://localhost:8085/swagger-ui.html
 ```
 Métricas interessantes para monitoramento : 
 
-> resilience4j_circuitbreaker_state
-> resilience4j_retry_calls
+>resilience4j_circuitbreaker_state
+
+>resilience4j_retry_calls
 
 
 
