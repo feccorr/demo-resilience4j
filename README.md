@@ -37,5 +37,11 @@ http://localhost:8085/swagger-ui.html
     static_configs:
     - targets: ['127.0.0.1:8085']
 ```
+Métricas interessantes para monitoramento : 
+
+>resilience4j_circuitbreaker_state
+>resilience4j_retry_calls
+
 
 >Referencia técnica : https://resilience4j.readme.io/docs
+
