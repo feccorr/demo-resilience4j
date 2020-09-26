@@ -16,8 +16,6 @@ resilience4j.circuitbreaker:
         - java.io.IOException
         - java.util.concurrent.TimeoutException
         - org.springframework.web.client.ResourceAccessException
-      ignoreExceptions:
-          - com.martins.orderManagementApp.service.MyException
     serviceGetSellersList:
       registerHealthIndicator: true
       waitDurationInOpenState: 20s # tempo que deve esperar antes de fazer a transição de OPEN para HALF-OPEN
